@@ -15,6 +15,9 @@ export class Booking extends BaseEntity {
   @Column({ name: 'description', type: 'varchar', length: 500, nullable: true })
   description: string;
 
+  @Column({ name: 'number-of-people', type: 'int2', default: 1 })
+  numberOfPeople: number;
+
   @Column({ name: 'start', type: 'timestamp' })
   start: Date;
 

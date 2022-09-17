@@ -14,6 +14,10 @@ export class CreateBookingDto {
   @IsOptional()
   description: string;
 
+  @IsNumber()
+  @IsOptional()
+  numberOfPeople?: number;
+
   @IsDateString()
   start: string;
 
