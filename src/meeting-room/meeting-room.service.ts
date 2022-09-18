@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { MeetingRoom, MeetingRoomRepository } from './meeting-room.repository';
 
 @Injectable()
@@ -11,5 +11,11 @@ export class MeetingRoomService {
 
   async findAll(): Promise<MeetingRoom[]> {
     return await this.#meetingRoomRepository.getAll();
+  }
+
+  async getById(id: number): Promise<MeetingRoom> {
+    const room = await this.#meetingRoomRepository.getById(id);
+    if (!room) throw new NotFoundException('Meeting room not found!');
+    return room;
   }
 }
