@@ -22,7 +22,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         database: config.get('POSTGRES_DB'),
         password: config.get('POSTGRES_PASSWORD'),
         synchronize: true,
-        logging: true,
         entities: [Booking],
       }),
     }),
