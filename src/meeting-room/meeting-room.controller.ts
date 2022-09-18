@@ -13,10 +13,12 @@ export class MeetingRoomController {
 
   @Get('/available-rooms')
   availableRooms(
+    @Query('numberOfPeople') numberOfPeople: string,
     @Query('from') fromDateString: string,
     @Query('to') toDateString: string,
   ) {
     return this.meetingRoomService.getAvailableRooms(
+      Number(numberOfPeople),
       new Date(fromDateString),
       new Date(toDateString),
     );

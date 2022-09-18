@@ -25,12 +25,18 @@ export class MeetingRoomService {
     return room;
   }
 
-  async getAvailableRooms(from: Date, to: Date): Promise<any> {
+  async getAvailableRooms(
+    numberOfPeople: number,
+    from: Date,
+    to: Date,
+  ): Promise<any> {
     const rooms = await this.#meetingRoomRepository.getAll();
     const engagedRoomIds = new Set(
       await this.#bookingService.getEngagedRoomsIds(from, to),
     );
 
-    return rooms.filter(({ id }) => !engagedRoomIds.has(id));
+    return rooms
+      .filter(({ id }) => !engagedRoomIds.has(id))
+      .filter(({ peopleCapacity }) => peopleCapacity >= numberOfPeople);
   }
 }
