@@ -5,7 +5,7 @@ export type MeetingRoom = {
   id: number;
   peopleCapacity: number;
   building: OfficeBuilding;
-  noOfMeetingRoom: number;
+  officeMeetingRoomId: number;
 };
 
 @Injectable()
@@ -16,31 +16,31 @@ export class MeetingRoomRepository {
       id: 1,
       peopleCapacity: 4,
       building: OfficeBuilding.OFFICE_1,
-      noOfMeetingRoom: 1,
+      officeMeetingRoomId: 1,
     },
     {
       id: 2,
       peopleCapacity: 5,
       building: OfficeBuilding.OFFICE_1,
-      noOfMeetingRoom: 2,
+      officeMeetingRoomId: 2,
     },
     {
       id: 3,
       peopleCapacity: 2,
       building: OfficeBuilding.OFFICE_2,
-      noOfMeetingRoom: 1,
+      officeMeetingRoomId: 1,
     },
     {
       id: 4,
       peopleCapacity: 4,
       building: OfficeBuilding.OFFICE_2,
-      noOfMeetingRoom: 2,
+      officeMeetingRoomId: 2,
     },
     {
       id: 5,
       peopleCapacity: 1,
       building: OfficeBuilding.OFFICE_2,
-      noOfMeetingRoom: 3,
+      officeMeetingRoomId: 3,
     },
   ];
 
