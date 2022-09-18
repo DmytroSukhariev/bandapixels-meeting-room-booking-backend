@@ -13,7 +13,7 @@ export class MeetingRoomController {
 
   @Get('/available-rooms')
   availableRooms(
-    @Query('numberOfPeople') numberOfPeople: string,
+    @Query('numberOfPeople') numberOfPeople: string = '1',
     @Query('from') fromDateString: string,
     @Query('to') toDateString: string,
   ) {
